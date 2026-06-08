@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2026 上海出发家庭旅行地图</title>
+    <meta
+      name="description"
+      content="上海出发，经洛阳、太行山、山西古建与阿尔山大兴安岭的家庭旅行可视化地图。"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIINfQjIo5pYdTLgJxH/3hUAlA8t3NKGMPc="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="行程信息">
+        <header class="trip-header">
+          <p class="eyebrow">2026.07.20 左右出发 · 2 大 1 小</p>
+          <h1>
+            <span>上海 → 太行山</span>
+            <span>山西古建 → 大兴安岭</span>
+          </h1>
+          <p class="summary">
+            高铁和飞机负责长距离转场，河南、山西和阿尔山段租车自驾。适合想保留路上自由度，又不想把返程开到筋疲力尽的家庭旅行。
+          </p>
+        </header>
+
+        <section class="metric-grid" aria-label="行程概览">
+          <div>
+            <span>21 天</span>
+            <small>建议总时长</small>
+          </div>
+          <div>
+            <span>约 3,100 km</span>
+            <small>租车自驾</small>
+          </div>
+          <div>
+            <span>¥5-7.5 万</span>
+            <small>全家预算</small>
+          </div>
+          <div>
+            <span>3 段</span>
+            <small>高铁/飞机转场</small>
+          </div>
+        </section>
+
+        <nav class="filter-bar" aria-label="地图筛选">
+          <button class="filter-btn active" data-filter="all" type="button">全部</button>
+          <button class="filter-btn" data-filter="heritage" type="button">古建</button>
+          <button class="filter-btn" data-filter="nature" type="button">山水</button>
+          <button class="filter-btn" data-filter="hotel" type="button">住宿</button>
+          <button class="filter-btn" data-filter="food" type="button">美食</button>
+        </nav>
+
+        <section class="legend" aria-label="图例">
+          <span><i class="line rail"></i>高铁</span>
+          <span><i class="line drive"></i>自驾</span>
+          <span><i class="line flight"></i>飞机</span>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">
+            <h2>每日路线</h2>
+            <button id="fit-route" type="button">回到全程</button>
+          </div>
+          <div id="itinerary-list" class="itinerary-list"></div>
+        </section>
+
+        <section class="panel-section cost-card">
+          <h2>费用拆分</h2>
+          <dl>
+            <div><dt>交通</dt><dd>¥23,000-35,000</dd></div>
+            <div><dt>住宿</dt><dd>¥11,000-17,000</dd></div>
+            <div><dt>餐饮</dt><dd>¥7,000-10,000</dd></div>
+            <div><dt>门票/景交</dt><dd>¥5,000-8,000</dd></div>
+          </dl>
+          <p>
+            价格是暑期中端舒适估算，正式订票前以 12306、航司、景区公众号和租车平台为准。
+          </p>
+        </section>
+      </aside>
+
+      <main class="map-area" aria-label="可视化地图">
+        <div id="map"></div>
+        <div class="map-note">
+          <strong>路线原则</strong>
+          <span>游玩日少开车，转场日不塞重景点；山西古建点位分散，租车最省心。</span>
+        </div>
+      </main>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>

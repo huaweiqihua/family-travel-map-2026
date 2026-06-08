@@ -678,9 +678,9 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 const routeStyles = {
-  rail: { color: "#4169a8", weight: 6, dashArray: "9 9", opacity: 0.95 },
-  drive: { color: "#1f7a6d", weight: 7, opacity: 0.95 },
-  flight: { color: "#9b4b78", weight: 6, dashArray: "2 10", opacity: 0.95 },
+  rail: { color: "#315fa2", weight: 7, dashArray: "10 8", opacity: 1 },
+  drive: { color: "#0e7966", weight: 8, opacity: 1 },
+  flight: { color: "#a44675", weight: 7, dashArray: "2 9", opacity: 1 },
 };
 
 const routeLayers = routeSegments.map((segment) => {
@@ -689,8 +689,8 @@ const routeLayers = routeSegments.map((segment) => {
   return layer;
 });
 
-const bounds = L.latLngBounds(routeSegments.flatMap((segment) => segment.coords));
-map.fitBounds(bounds, { padding: [28, 28] });
+const bounds = L.latLngBounds(places.map((place) => place.coords));
+map.fitBounds(bounds, { padding: [36, 36] });
 
 const markers = [];
 
@@ -806,5 +806,5 @@ document.querySelector("#fit-route").addEventListener("click", () => {
 
 setTimeout(() => {
   map.invalidateSize();
-  map.fitBounds(bounds, { padding: [28, 28] });
+  map.fitBounds(bounds, { padding: [36, 36] });
 }, 350);

@@ -1157,6 +1157,66 @@ const driveRouteSegments = [
   },
 ];
 
+function toTimeBreakdown(rows) {
+  return Object.fromEntries(
+    rows.map(([day, travel, play, rest, note]) => [
+      day,
+      { travel, play, rest, note },
+    ]),
+  );
+}
+
+const hybridTimeBreakdown = toTimeBreakdown([
+  [1, "高铁/接驳 7-8h", "0-1h", "2-3h", "到洛阳后只散步吃饭，不排重景点。"],
+  [2, "市内 0.5-1h", "5-6h", "2h", "龙门石窟为主，午后留室内或酒店休息。"],
+  [3, "自驾 3.5-4h", "2-3h", "2h", "上午洛阳轻逛，下午进太行山住宿点。"],
+  [4, "景区 1-2h", "5-6h", "2-3h", "太行大峡谷主游玩日，适合慢走和玩水。"],
+  [5, "山路 4.5-5.5h", "3-4h", "1.5-2h", "挂壁公路日，路途本身也是体验。"],
+  [6, "自驾 3.5-4.5h", "3-4h", "2h", "晋东南古建点分散，避免排太多小点。"],
+  [7, "往返 3-4h", "4-5h", "2h", "八泉峡玩水徒步，晚上早点回城。"],
+  [8, "自驾 4-5h", "2-3h", "2h", "转场加广胜寺，不建议再加重景点。"],
+  [9, "自驾 4.5-5.5h", "3-4h", "1.5-2h", "小西天和壶口同日较满，午餐留机动。"],
+  [10, "自驾 4.5-5.5h", "2-3h", "2h", "到平遥后以夜景和吃饭为主。"],
+  [11, "周边 1-2h", "4-5h", "2-3h", "平遥周边慢逛，适合洗衣和休整。"],
+  [12, "自驾 2-3h", "3-4h", "2-3h", "晋祠日强度适中，太原补给休息。"],
+  [13, "自驾 5-6h", "3-4h", "1.5-2h", "佛光寺/南禅寺路远，晚上不安排夜游。"],
+  [14, "自驾 5-6h", "3-4h", "1.5-2h", "木塔和悬空寺同日，登临票要预留排队。"],
+  [15, "市内 1-1.5h", "5-6h", "2h", "云冈主游玩日，下午古城寺庙择一。"],
+  [16, "高铁+飞机 6-8h", "0-1h", "2-3h", "纯转场日，抵达后休息和补给。"],
+  [17, "自驾 4-5h", "1-2h", "2-3h", "进入阿尔山，不急着进森林公园。"],
+  [18, "景区 2h", "5-6h", "2h", "阿尔山森林公园主游玩日。"],
+  [19, "自驾 2-4h", "3-4h", "2-3h", "白狼峰/周边轻徒步，给大兴安岭留呼吸感。"],
+  [20, "自驾 4-5h", "1-2h", "2-3h", "返机场城市，顺路小景即可。"],
+  [21, "飞行/接驳 3-6h", "0h", "半天", "回家日，不安排游玩。"],
+]);
+
+const driveTimeBreakdown = toTimeBreakdown([
+  [1, "自驾 6.5-7h", "0h", "服务区 2h + 早睡", "纯赶路日，目标是安全抵达徐州。"],
+  [2, "自驾 5-5.5h", "1-2h", "2-3h", "抵达洛阳后只安排晚饭和轻逛。"],
+  [3, "市内 0.5-1h", "5-6h", "2h", "龙门石窟和博物馆主游玩日。"],
+  [4, "自驾 3.5-4h", "2-3h", "2h", "下午进太行山，晚上住山里。"],
+  [5, "景区 1-2h", "5-6h", "2-3h", "太行大峡谷主游玩日。"],
+  [6, "山路 4.5-5.5h", "3-4h", "1.5-2h", "王莽岭山路慢开，别赶夜路。"],
+  [7, "自驾 3.5-4.5h", "3-4h", "2h", "晋东南古建日，点位控制在 2-3 个。"],
+  [8, "往返 3-4h", "4-5h", "2h", "八泉峡玩水徒步，晚上休整。"],
+  [9, "自驾 4.5-5h", "2-3h", "2h", "长治到临汾转场，不加太多景点。"],
+  [10, "自驾 5h", "3-4h", "1.5-2h", "小西天和壶口较满，晚饭后休息。"],
+  [11, "自驾 4.5-5.5h", "2-3h", "2h", "到平遥后慢逛夜景。"],
+  [12, "自驾 2-3h", "4-5h", "2-3h", "平遥周边和太原补给日。"],
+  [13, "自驾 5-6h", "3-4h", "1.5-2h", "五台山前后路程长，晚上不再加活动。"],
+  [14, "自驾 5-6h", "3-4h", "1.5-2h", "木塔、悬空寺、大同串联日。"],
+  [15, "市内 1-1.5h", "5-6h", "2h", "云冈和大同古城主游玩日。"],
+  [16, "自驾 7.5-8.5h", "0-1h", "服务区 2-3h", "大同到赤峰是纯长途转场。"],
+  [17, "自驾 7-8h", "0-1h", "服务区 2-3h", "赤峰到乌兰浩特继续赶路。"],
+  [18, "自驾 4-5h", "1-2h", "2-3h", "抵达阿尔山，休整为主。"],
+  [19, "景区 2h", "5-6h", "2h", "阿尔山森林公园主游玩日。"],
+  [20, "自驾 2-4h", "3-4h", "2-3h", "白狼峰/周边轻徒步，避免过累。"],
+  [21, "自驾 7-8h", "0-1h", "服务区 2-3h", "返程第一段长途，只赶路。"],
+  [22, "自驾 7.5-8.5h", "0-1h", "服务区 2-3h", "返程第二段长途，住下就休息。"],
+  [23, "自驾 8.5-9h", "0h", "服务区 3h", "强度最高的返程日，可拆成两天更舒服。"],
+  [24, "自驾 5.5-6.5h", "0h", "半天", "回家日，不安排游玩。"],
+]);
+
 const tripPlans = {
   hybrid: {
     eyebrow: "2026.07.20 左右出发 · 舒适家庭版",
@@ -1188,6 +1248,7 @@ const tripPlans = {
     itinerary: hybridItinerary,
     places: hybridPlaces,
     routeSegments: hybridRouteSegments,
+    timeBreakdown: hybridTimeBreakdown,
   },
   drive: {
     eyebrow: "2026.07.20 左右出发 · 全程自驾版",
@@ -1217,6 +1278,7 @@ const tripPlans = {
     itinerary: driveItinerary,
     places: drivePlaces,
     routeSegments: driveRouteSegments,
+    timeBreakdown: driveTimeBreakdown,
   },
 };
 
@@ -1239,11 +1301,15 @@ const routeStyles = {
   flight: { color: "#a44675", weight: 7, dashArray: "2 9", opacity: 1 },
 };
 
-let activePlanKey = window.location.hash === "#drive" ? "drive" : "hybrid";
+let activePlanKey = planKeyFromHash();
 let activePlan = tripPlans[activePlanKey];
 let currentFilter = "all";
 let routeLayers = [];
 let markers = [];
+
+function planKeyFromHash() {
+  return window.location.hash === "#drive" ? "drive" : "hybrid";
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -1368,8 +1434,29 @@ function renderMarkers() {
 
 function renderItinerary() {
   list.innerHTML = activePlan.itinerary
-    .map(
-      (day) => `
+    .map((day) => {
+      const time = activePlan.timeBreakdown[day.day];
+      const timeHtml = time
+        ? `
+        <span class="time-grid" aria-label="当日时间安排">
+          <span>
+            <strong>路途</strong>
+            <em>${escapeHtml(time.travel)}</em>
+          </span>
+          <span>
+            <strong>游玩</strong>
+            <em>${escapeHtml(time.play)}</em>
+          </span>
+          <span>
+            <strong>休息</strong>
+            <em>${escapeHtml(time.rest)}</em>
+          </span>
+        </span>
+        <span class="time-note">${escapeHtml(time.note)}</span>
+      `
+        : "";
+
+      return `
       <button class="day-card" type="button" data-day="${day.day}">
         <span class="day-top">
           <span class="day-number">D${day.day}</span>
@@ -1380,14 +1467,15 @@ function renderItinerary() {
           <span class="pill">${escapeHtml(day.mode)}</span>
           <span class="pill">${escapeHtml(day.distance)}</span>
         </span>
+        ${timeHtml}
         <span class="day-tags">
           <span class="pill">住：${escapeHtml(day.stay)}</span>
           <span class="pill">吃：${escapeHtml(day.food)}</span>
           <span class="pill">费：${escapeHtml(day.budget)}</span>
         </span>
       </button>
-    `,
-    )
+    `;
+    })
     .join("");
   document.querySelectorAll(".day-card").forEach((card) => {
     card.addEventListener("click", () => {
@@ -1428,13 +1516,17 @@ document.querySelectorAll(".filter-btn").forEach((button) => {
 document.querySelectorAll(".plan-btn").forEach((button) => {
   button.addEventListener("click", () => {
     activePlanKey = button.dataset.plan;
-    document.querySelectorAll(".plan-btn.active").forEach((item) => {
-      item.classList.remove("active");
-    });
-    button.classList.add("active");
     window.history.replaceState(null, "", `#${activePlanKey}`);
     renderPlan();
   });
+});
+
+window.addEventListener("hashchange", () => {
+  const nextPlanKey = planKeyFromHash();
+  if (nextPlanKey !== activePlanKey) {
+    activePlanKey = nextPlanKey;
+    renderPlan();
+  }
 });
 
 document.querySelector("#fit-route").addEventListener("click", () => {

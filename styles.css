@@ -26,6 +26,7 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -374,6 +375,46 @@ h2 {
   gap: 6px;
 }
 
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.time-grid span {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 8px 9px;
+  border: 1px solid #e3ece5;
+  border-radius: 8px;
+  background: #f8fbf7;
+}
+
+.time-grid strong {
+  color: #5c7168;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.time-grid em {
+  color: #24362f;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.time-note {
+  padding-left: 10px;
+  border-left: 3px solid rgba(216, 139, 67, 0.48);
+  color: #697a72;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
 .pill {
   display: inline-flex;
   align-items: center;
@@ -425,12 +466,15 @@ h2 {
 .map-area {
   position: relative;
   min-width: 0;
+  overflow: hidden;
+  contain: layout paint;
   background: #dceae2;
 }
 
 #map {
   position: absolute;
   inset: 0;
+  overflow: hidden;
 }
 
 #map .leaflet-tile {

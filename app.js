@@ -1,4 +1,4 @@
-const itinerary = [
+const hybridItinerary = [
   {
     day: 1,
     date: "7/20",
@@ -298,7 +298,357 @@ const itinerary = [
   },
 ];
 
-const places = [
+const driveItinerary = [
+  {
+    day: 1,
+    date: "7/20",
+    title: "上海 → 徐州",
+    mode: "自驾",
+    distance: "约 580 km / 6.5-7 小时",
+    stay: "徐州/宿州中端酒店，¥250-450",
+    food: "徐州烧烤、地锅鸡、羊肉汤",
+    budget: "油费+通行费约 ¥650-850",
+    coords: [
+      [31.2304, 121.4737],
+      [34.2618, 117.1848],
+    ],
+  },
+  {
+    day: 2,
+    date: "7/21",
+    title: "徐州 → 洛阳",
+    mode: "自驾",
+    distance: "约 430 km / 5-5.5 小时",
+    stay: "洛阳龙门站/泉舜片区，¥350-650",
+    food: "牛肉汤、洛阳水席、不翻汤",
+    budget: "油费+通行费约 ¥480-650",
+    coords: [
+      [34.2618, 117.1848],
+      [34.6197, 112.454],
+    ],
+  },
+  {
+    day: 3,
+    date: "7/22",
+    title: "洛阳一日：龙门石窟 + 洛阳博物馆",
+    mode: "市内自驾",
+    distance: "20-40 km",
+    stay: "继续住洛阳，¥350-650",
+    food: "牡丹燕菜、浆面条、羊肉汤",
+    budget: "门票+停车约 ¥250-450/全家",
+    coords: [
+      [34.6197, 112.454],
+      [34.5593, 112.4796],
+      [34.62, 112.444],
+    ],
+  },
+  {
+    day: 4,
+    date: "7/23",
+    title: "洛阳 → 林州石板岩",
+    mode: "自驾",
+    distance: "约 270 km / 3.5-4 小时",
+    stay: "石板岩民宿，¥250-600",
+    food: "扁粉菜、皮渣、太行农家菜",
+    budget: "油费+通行费约 ¥300-430",
+    coords: [
+      [34.6197, 112.454],
+      [36.0895, 113.8529],
+    ],
+  },
+  {
+    day: 5,
+    date: "7/24",
+    title: "林州太行大峡谷",
+    mode: "景区自驾",
+    distance: "景区内 30-60 km",
+    stay: "石板岩民宿，¥250-600",
+    food: "柴鸡、手工面、山野菜",
+    budget: "套票常见 ¥140-160/成人",
+    coords: [[36.087, 113.851]],
+  },
+  {
+    day: 6,
+    date: "7/25",
+    title: "林州 → 王莽岭/锡崖沟 → 晋城",
+    mode: "山路自驾",
+    distance: "约 200 km / 5 小时",
+    stay: "晋城中端酒店，¥250-450",
+    food: "高平烧豆腐、羊汤、饸饹面",
+    budget: "油费+通行费+门票约 ¥650-950/全家",
+    coords: [
+      [36.087, 113.851],
+      [35.6965, 113.583],
+      [35.491, 112.852],
+    ],
+  },
+  {
+    day: 7,
+    date: "7/26",
+    title: "晋城/高平古建 → 长治",
+    mode: "自驾",
+    distance: "160-220 km / 3.5-4.5 小时",
+    stay: "长治中端酒店，¥250-500",
+    food: "炒饼、羊汤、和子饭",
+    budget: "小景点多为 ¥20-50/成人",
+    coords: [
+      [35.491, 112.852],
+      [35.5764, 112.894],
+      [35.8011, 112.923],
+      [36.191, 113.114],
+    ],
+  },
+  {
+    day: 8,
+    date: "7/27",
+    title: "长治 ↔ 八泉峡",
+    mode: "自驾",
+    distance: "160-200 km / 3-4 小时",
+    stay: "长治或壶关，¥250-500",
+    food: "农家炖土鸡、太行菌菇",
+    budget: "综合票常见 ¥180-300/成人",
+    coords: [
+      [36.191, 113.114],
+      [36.1645, 113.5633],
+    ],
+  },
+  {
+    day: 9,
+    date: "7/28",
+    title: "长治 → 洪洞广胜寺 → 临汾",
+    mode: "自驾",
+    distance: "约 300 km / 4.5-5 小时",
+    stay: "临汾中端酒店，¥250-450",
+    food: "牛肉丸子面、羊杂割",
+    budget: "油费+通行费约 ¥340-480",
+    coords: [
+      [36.191, 113.114],
+      [36.278, 111.655],
+      [36.088, 111.519],
+    ],
+  },
+  {
+    day: 10,
+    date: "7/29",
+    title: "临汾 → 小西天 → 壶口/吉县",
+    mode: "自驾",
+    distance: "约 260 km / 5 小时",
+    stay: "吉县或临汾，¥250-600",
+    food: "玉露香梨、黄河鲤鱼、饸饹面",
+    budget: "油费+通行费+门票约 ¥650-950/全家",
+    coords: [
+      [36.088, 111.519],
+      [36.6948, 110.9425],
+      [36.145, 110.684],
+    ],
+  },
+  {
+    day: 11,
+    date: "7/30",
+    title: "吉县/临汾 → 平遥",
+    mode: "自驾",
+    distance: "300-340 km / 4.5-5.5 小时",
+    stay: "平遥客栈/城外酒店，¥250-600",
+    food: "平遥牛肉、碗托、栲栳栳",
+    budget: "油费+通行费约 ¥360-520",
+    coords: [
+      [36.145, 110.684],
+      [37.189, 112.176],
+    ],
+  },
+  {
+    day: 12,
+    date: "7/31",
+    title: "平遥周边 → 太原",
+    mode: "自驾",
+    distance: "120-180 km / 2-3 小时",
+    stay: "太原柳巷/南站，¥350-700",
+    food: "刀削面、头脑、羊杂割",
+    budget: "双林寺/镇国寺/晋祠择二，约 ¥300-650/全家",
+    coords: [
+      [37.189, 112.176],
+      [37.144, 112.135],
+      [37.2905, 112.256],
+      [37.7066, 112.441],
+      [37.871, 112.549],
+    ],
+  },
+  {
+    day: 13,
+    date: "8/1",
+    title: "太原 → 南禅寺/佛光寺 → 五台山",
+    mode: "自驾",
+    distance: "约 330 km / 5-6 小时",
+    stay: "台怀镇，¥450-900",
+    food: "素斋、台蘑炖鸡",
+    budget: "油费+通行费+景区约 ¥850-1,300/全家",
+    coords: [
+      [37.871, 112.549],
+      [38.7255, 113.167],
+      [38.8647, 113.315],
+      [39.005, 113.596],
+    ],
+  },
+  {
+    day: 14,
+    date: "8/2",
+    title: "五台山 → 应县木塔 → 悬空寺 → 大同",
+    mode: "自驾",
+    distance: "约 320 km / 5-6 小时",
+    stay: "大同古城/南站，¥300-650",
+    food: "浑源凉粉、大同刀削面",
+    budget: "油费+通行费+门票约 ¥700-1,100/全家",
+    coords: [
+      [39.005, 113.596],
+      [39.554, 113.19],
+      [39.66, 113.707],
+      [40.076, 113.3],
+    ],
+  },
+  {
+    day: 15,
+    date: "8/3",
+    title: "大同：云冈石窟 + 古城寺庙",
+    mode: "市内自驾",
+    distance: "50-80 km",
+    stay: "大同，¥300-650",
+    food: "羊杂、烧麦、兔头",
+    budget: "云冈+华严寺约 ¥450-700/全家",
+    coords: [
+      [40.076, 113.3],
+      [40.1093, 113.1221],
+      [40.0932, 113.294],
+    ],
+  },
+  {
+    day: 16,
+    date: "8/4",
+    title: "大同 → 赤峰",
+    mode: "长途自驾",
+    distance: "约 650 km / 7.5-8.5 小时",
+    stay: "赤峰中端酒店，¥300-550",
+    food: "对夹、蒙餐、羊肉烧麦",
+    budget: "油费+通行费约 ¥750-1,000",
+    coords: [
+      [40.076, 113.3],
+      [42.2578, 118.8889],
+    ],
+  },
+  {
+    day: 17,
+    date: "8/5",
+    title: "赤峰 → 乌兰浩特",
+    mode: "长途自驾",
+    distance: "约 620 km / 7-8 小时",
+    stay: "乌兰浩特，¥300-550",
+    food: "手把肉、奶茶、锅茶",
+    budget: "油费+通行费约 ¥700-950",
+    coords: [
+      [42.2578, 118.8889],
+      [46.077, 122.068],
+    ],
+  },
+  {
+    day: 18,
+    date: "8/6",
+    title: "乌兰浩特 → 阿尔山",
+    mode: "自驾",
+    distance: "280-330 km / 4-5 小时",
+    stay: "阿尔山/伊尔施，¥500-1,200",
+    food: "铁锅炖、牛羊肉、东北菜",
+    budget: "油费+通行费约 ¥320-460",
+    coords: [
+      [46.077, 122.068],
+      [47.177, 119.943],
+    ],
+  },
+  {
+    day: 19,
+    date: "8/7",
+    title: "阿尔山国家森林公园",
+    mode: "自驾 + 景交",
+    distance: "景区内 80-120 km",
+    stay: "阿尔山，¥500-1,200",
+    food: "山野菜、冷水鱼、蘑菇",
+    budget: "门票+景交常见约 ¥275-285/成人",
+    coords: [
+      [47.177, 119.943],
+      [47.292, 120.416],
+    ],
+  },
+  {
+    day: 20,
+    date: "8/8",
+    title: "阿尔山周边：白狼峰/森林轻徒步",
+    mode: "自驾",
+    distance: "100-180 km / 2-4 小时",
+    stay: "阿尔山，¥500-1,200",
+    food: "锅包肉、地三鲜、林区果品",
+    budget: "周边景点+停车约 ¥300-700/全家",
+    coords: [
+      [47.177, 119.943],
+      [47.06, 120.03],
+    ],
+  },
+  {
+    day: 21,
+    date: "8/9",
+    title: "阿尔山 → 通辽",
+    mode: "长途自驾",
+    distance: "560-620 km / 7-8 小时",
+    stay: "通辽中端酒店，¥300-550",
+    food: "科尔沁牛肉、蒙餐",
+    budget: "油费+通行费约 ¥650-900",
+    coords: [
+      [47.177, 119.943],
+      [43.617, 122.263],
+    ],
+  },
+  {
+    day: 22,
+    date: "8/10",
+    title: "通辽 → 秦皇岛/唐山",
+    mode: "长途自驾",
+    distance: "650-700 km / 7.5-8.5 小时",
+    stay: "秦皇岛/唐山，¥350-700",
+    food: "海鲜、棋子烧饼、饹馇",
+    budget: "油费+通行费约 ¥750-1,050",
+    coords: [
+      [43.617, 122.263],
+      [39.935, 119.6],
+    ],
+  },
+  {
+    day: 23,
+    date: "8/11",
+    title: "秦皇岛/唐山 → 淮安",
+    mode: "长途自驾",
+    distance: "700-760 km / 8.5-9 小时",
+    stay: "淮安中端酒店，¥250-500",
+    food: "淮扬菜、软兜长鱼、茶馓",
+    budget: "油费+通行费约 ¥850-1,150",
+    coords: [
+      [39.935, 119.6],
+      [33.6104, 119.0153],
+    ],
+  },
+  {
+    day: 24,
+    date: "8/12",
+    title: "淮安 → 上海",
+    mode: "自驾",
+    distance: "430-500 km / 5.5-6.5 小时",
+    stay: "回家",
+    food: "服务区简餐，回家吃顿舒服的",
+    budget: "油费+通行费约 ¥500-700",
+    coords: [
+      [33.6104, 119.0153],
+      [31.2304, 121.4737],
+    ],
+  },
+];
+
+const hybridPlaces = [
   {
     name: "上海虹桥站",
     type: "transport",
@@ -609,7 +959,127 @@ const places = [
   },
 ];
 
-const routeSegments = [
+const driveDayByPlace = {
+  上海虹桥站: "D1",
+  龙门石窟: "D3",
+  洛阳博物馆: "D3",
+  石板岩镇: "D4-D5",
+  林州太行大峡谷: "D5",
+  "王莽岭/锡崖沟": "D6",
+  泽州玉皇庙: "D7",
+  高平铁佛寺: "D7",
+  八泉峡: "D8",
+  广胜寺: "D9",
+  隰县小西天: "D10",
+  壶口瀑布: "D10",
+  平遥古城: "D11-D12",
+  双林寺: "D12",
+  镇国寺: "D12",
+  晋祠: "D12",
+  南禅寺: "D13",
+  佛光寺: "D13",
+  应县木塔: "D14",
+  悬空寺: "D14",
+  云冈石窟: "D15",
+  华严寺: "D15",
+  阿尔山市: "D18-D21",
+  阿尔山国家森林公园: "D19",
+  白狼峰: "D20",
+  太原美食点: "D12",
+  大同美食点: "D15",
+};
+
+const drivePlaces = [
+  ...hybridPlaces
+    .filter((place) => place.name !== "海拉尔机场")
+    .map((place) => {
+      const renamed =
+        place.name === "上海虹桥站"
+          ? {
+              name: "上海出发",
+              type: "自驾起点",
+              coords: [31.2304, 121.4737],
+              intro: "全程自驾从上海出发，第一天不进景区，目标是稳稳开到徐州。",
+              ticket: "无",
+              stay: "前一晚在家休息，车辆加油、检查轮胎和胎压",
+              food: "车上备水、零食和孩子爱吃的简餐",
+            }
+          : {};
+      return {
+        ...place,
+        ...renamed,
+        day: driveDayByPlace[place.name] ?? place.day,
+      };
+    }),
+  {
+    name: "徐州中转",
+    type: "住宿中转",
+    category: "hotel",
+    day: "D1",
+    coords: [34.2618, 117.1848],
+    intro: "上海到河南之间的舒适断点，第一天只负责把长途开顺。",
+    ticket: "无",
+    stay: "徐州/宿州中端酒店 ¥250-450",
+    food: "徐州烧烤、地锅鸡、羊肉汤",
+  },
+  {
+    name: "赤峰中转",
+    type: "长途中转",
+    category: "hotel",
+    day: "D16",
+    coords: [42.2578, 118.8889],
+    intro: "大同北上阿尔山的第一段长途落脚点，建议不要再塞景区。",
+    ticket: "无",
+    stay: "赤峰中端酒店 ¥300-550",
+    food: "对夹、蒙餐、羊肉烧麦",
+  },
+  {
+    name: "乌兰浩特中转",
+    type: "长途中转",
+    category: "hotel",
+    day: "D17",
+    coords: [46.077, 122.068],
+    intro: "进入阿尔山前的补给城市，适合洗衣、补水、检查车辆。",
+    ticket: "无",
+    stay: "乌兰浩特 ¥300-550",
+    food: "手把肉、奶茶、锅茶",
+  },
+  {
+    name: "通辽返程中转",
+    type: "长途中转",
+    category: "hotel",
+    day: "D21",
+    coords: [43.617, 122.263],
+    intro: "阿尔山回上海的第一段返程落脚点，全天以赶路和休息为主。",
+    ticket: "无",
+    stay: "通辽中端酒店 ¥300-550",
+    food: "科尔沁牛肉、蒙餐",
+  },
+  {
+    name: "秦皇岛/唐山中转",
+    type: "长途中转",
+    category: "hotel",
+    day: "D22",
+    coords: [39.935, 119.6],
+    intro: "返程第二个落脚点，可根据当天精神状态选择住秦皇岛或唐山。",
+    ticket: "无",
+    stay: "秦皇岛/唐山 ¥350-700",
+    food: "海鲜、棋子烧饼、饹馇",
+  },
+  {
+    name: "淮安中转",
+    type: "返沪中转",
+    category: "hotel",
+    day: "D23",
+    coords: [33.6104, 119.0153],
+    intro: "最后一段返沪前的安全断点，比从华北一口气开回上海舒服很多。",
+    ticket: "无",
+    stay: "淮安中端酒店 ¥250-500",
+    food: "淮扬菜、软兜长鱼、茶馓",
+  },
+];
+
+const hybridRouteSegments = [
   {
     name: "上海至洛阳高铁",
     type: "rail",
@@ -621,7 +1091,7 @@ const routeSegments = [
   {
     name: "河南与山西自驾",
     type: "drive",
-    coords: itinerary
+    coords: hybridItinerary
       .slice(2, 15)
       .flatMap((day) => day.coords)
       .filter(Boolean),
@@ -664,6 +1134,92 @@ const routeSegments = [
   },
 ];
 
+const driveRouteSegments = [
+  {
+    name: "上海至太行山自驾",
+    type: "drive",
+    coords: driveItinerary.slice(0, 6).flatMap((day) => day.coords).filter(Boolean),
+  },
+  {
+    name: "山西古建主线自驾",
+    type: "drive",
+    coords: driveItinerary.slice(5, 15).flatMap((day) => day.coords).filter(Boolean),
+  },
+  {
+    name: "北上阿尔山长途自驾",
+    type: "drive",
+    coords: driveItinerary.slice(15, 20).flatMap((day) => day.coords).filter(Boolean),
+  },
+  {
+    name: "阿尔山返上海自驾",
+    type: "drive",
+    coords: driveItinerary.slice(20).flatMap((day) => day.coords).filter(Boolean),
+  },
+];
+
+const tripPlans = {
+  hybrid: {
+    eyebrow: "2026.07.20 左右出发 · 舒适家庭版",
+    title: ["上海 → 太行山", "山西古建 → 大兴安岭"],
+    summary:
+      "高铁和飞机负责长距离转场，河南、山西和阿尔山段租车自驾。适合想保留路上自由度，又不想把返程开到筋疲力尽的家庭旅行。",
+    chips: ["山水", "古建", "林海", "慢一点"],
+    metrics: [
+      ["21 天", "建议总时长"],
+      ["约 3,100 km", "租车自驾"],
+      ["¥5-7.5 万", "全家预算"],
+      ["3 段", "高铁/飞机转场"],
+    ],
+    legend: [
+      ["rail", "高铁"],
+      ["drive", "自驾"],
+      ["flight", "飞机"],
+    ],
+    costs: [
+      ["交通", "¥23,000-35,000"],
+      ["住宿", "¥11,000-17,000"],
+      ["餐饮", "¥7,000-10,000"],
+      ["门票/景交", "¥5,000-8,000"],
+    ],
+    costNote:
+      "价格是暑期中端舒适估算，正式订票前以 12306、航司、景区公众号和租车平台为准。",
+    mapNoteTitle: "路线原则",
+    mapNoteBody: "游玩日少开车，转场日不塞重景点；山西古建点位分散，租车最省心。",
+    itinerary: hybridItinerary,
+    places: hybridPlaces,
+    routeSegments: hybridRouteSegments,
+  },
+  drive: {
+    eyebrow: "2026.07.20 左右出发 · 全程自驾版",
+    title: ["上海环线自驾", "太行山 → 山西 → 阿尔山"],
+    summary:
+      "全程开自己的车完成太行山、山西古建和阿尔山大兴安岭。24 天是紧凑可执行版，返程有多段 7-9 小时长途，想更舒服建议加 1-2 天机动。",
+    chips: ["纯自驾", "24 天", "长途转场", "预算更低但更累"],
+    metrics: [
+      ["24 天", "紧凑总时长"],
+      ["约 6,700 km", "全程自驾"],
+      ["¥4.2-6.4 万", "全家预算"],
+      ["8-9 天", "长途转场"],
+    ],
+    legend: [["drive", "自驾"]],
+    costs: [
+      ["车辆", "¥10,000-15,000"],
+      ["住宿", "¥12,000-20,000"],
+      ["餐饮", "¥8,000-12,000"],
+      ["门票/景交", "¥5,000-8,000"],
+      ["机动", "¥3,000-5,000"],
+    ],
+    costNote:
+      "车辆预算按约 6,700 km、百公里 8-10L、92 号油约 ¥8-9/L、高速通行费约 ¥0.45-0.65/km 估算，含停车和保养预留，不含车辆折旧。",
+    mapNoteTitle: "全自驾提醒",
+    mapNoteBody:
+      "大同北上阿尔山、阿尔山返沪是强度最高的部分。D16、D17、D21-D23 尽量只赶路和休息，不再叠加重景点。",
+    itinerary: driveItinerary,
+    places: drivePlaces,
+    routeSegments: driveRouteSegments,
+  },
+};
+
 const map = L.map("map", {
   zoomControl: false,
   scrollWheelZoom: true,
@@ -683,16 +1239,11 @@ const routeStyles = {
   flight: { color: "#a44675", weight: 7, dashArray: "2 9", opacity: 1 },
 };
 
-const routeLayers = routeSegments.map((segment) => {
-  const layer = L.polyline(segment.coords, routeStyles[segment.type]).addTo(map);
-  layer.bindTooltip(segment.name, { sticky: true });
-  return layer;
-});
-
-const bounds = L.latLngBounds(places.map((place) => place.coords));
-map.fitBounds(bounds, { padding: [36, 36] });
-
-const markers = [];
+let activePlanKey = window.location.hash === "#drive" ? "drive" : "hybrid";
+let activePlan = tripPlans[activePlanKey];
+let currentFilter = "all";
+let routeLayers = [];
+let markers = [];
 
 function escapeHtml(value) {
   return String(value)
@@ -729,18 +1280,94 @@ function popupHtml(place) {
   `;
 }
 
-places.forEach((place) => {
-  const marker = L.marker(place.coords, { icon: makeIcon(place) })
-    .bindPopup(popupHtml(place))
-    .addTo(map);
-  marker.placeCategory = place.category;
-  markers.push(marker);
-});
-
 const list = document.querySelector("#itinerary-list");
+const metricGrid = document.querySelector("#metric-grid");
+const legend = document.querySelector("#legend");
+const costList = document.querySelector("#cost-list");
+const tripEyebrow = document.querySelector("#trip-eyebrow");
+const tripTitle = document.querySelector("#trip-title");
+const tripSummary = document.querySelector("#trip-summary");
+const tripChips = document.querySelector("#trip-chips");
+const costNote = document.querySelector("#cost-note");
+const mapNoteTitle = document.querySelector("#map-note-title");
+const mapNoteBody = document.querySelector("#map-note-body");
+
+function planBounds() {
+  return L.latLngBounds(activePlan.places.map((place) => place.coords));
+}
+
+function fitActivePlan() {
+  map.fitBounds(planBounds(), { padding: [36, 36] });
+}
+
+function renderPlanText() {
+  tripEyebrow.textContent = activePlan.eyebrow;
+  tripTitle.innerHTML = activePlan.title
+    .map((line) => `<span>${escapeHtml(line)}</span>`)
+    .join("");
+  tripSummary.textContent = activePlan.summary;
+  tripChips.innerHTML = activePlan.chips
+    .map((chip) => `<span>${escapeHtml(chip)}</span>`)
+    .join("");
+  metricGrid.innerHTML = activePlan.metrics
+    .map(
+      ([value, label]) => `
+        <div>
+          <span>${escapeHtml(value)}</span>
+          <small>${escapeHtml(label)}</small>
+        </div>
+      `,
+    )
+    .join("");
+  legend.innerHTML = activePlan.legend
+    .map(([type, label]) => `<span><i class="line ${type}"></i>${escapeHtml(label)}</span>`)
+    .join("");
+  costList.innerHTML = activePlan.costs
+    .map(
+      ([label, value]) => `
+        <div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>
+      `,
+    )
+    .join("");
+  costNote.textContent = activePlan.costNote;
+  mapNoteTitle.textContent = activePlan.mapNoteTitle;
+  mapNoteBody.textContent = activePlan.mapNoteBody;
+}
+
+function renderRoutes() {
+  routeLayers.forEach((layer) => map.removeLayer(layer));
+  routeLayers = activePlan.routeSegments.map((segment) => {
+    const layer = L.polyline(segment.coords, routeStyles[segment.type]).addTo(map);
+    layer.bindTooltip(segment.name, { sticky: true });
+    layer.bringToFront();
+    return layer;
+  });
+}
+
+function applyMarkerFilter() {
+  markers.forEach((marker) => {
+    const shouldShow = currentFilter === "all" || marker.placeCategory === currentFilter;
+    if (shouldShow && !map.hasLayer(marker)) {
+      map.addLayer(marker);
+    }
+    if (!shouldShow && map.hasLayer(marker)) {
+      map.removeLayer(marker);
+    }
+  });
+}
+
+function renderMarkers() {
+  markers.forEach((marker) => map.removeLayer(marker));
+  markers = activePlan.places.map((place) => {
+    const marker = L.marker(place.coords, { icon: makeIcon(place) }).bindPopup(popupHtml(place));
+    marker.placeCategory = place.category;
+    return marker;
+  });
+  applyMarkerFilter();
+}
 
 function renderItinerary() {
-  list.innerHTML = itinerary
+  list.innerHTML = activePlan.itinerary
     .map(
       (day) => `
       <button class="day-card" type="button" data-day="${day.day}">
@@ -762,38 +1389,51 @@ function renderItinerary() {
     `,
     )
     .join("");
+  document.querySelectorAll(".day-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      document.querySelectorAll(".day-card.active").forEach((item) => {
+        item.classList.remove("active");
+      });
+      card.classList.add("active");
+      const day = activePlan.itinerary.find((item) => item.day === Number(card.dataset.day));
+      const dayBounds = L.latLngBounds(day.coords);
+      map.fitBounds(dayBounds, { padding: [80, 80], maxZoom: 9 });
+    });
+  });
 }
 
-renderItinerary();
-
-document.querySelectorAll(".day-card").forEach((card) => {
-  card.addEventListener("click", () => {
-    document.querySelectorAll(".day-card.active").forEach((item) => {
-      item.classList.remove("active");
-    });
-    card.classList.add("active");
-    const day = itinerary.find((item) => item.day === Number(card.dataset.day));
-    const dayBounds = L.latLngBounds(day.coords);
-    map.fitBounds(dayBounds, { padding: [80, 80], maxZoom: 9 });
+function renderPlan() {
+  activePlan = tripPlans[activePlanKey];
+  document.querySelectorAll(".plan-btn").forEach((button) => {
+    button.classList.toggle("active", button.dataset.plan === activePlanKey);
   });
-});
+  renderPlanText();
+  renderRoutes();
+  renderMarkers();
+  renderItinerary();
+  fitActivePlan();
+}
 
 document.querySelectorAll(".filter-btn").forEach((button) => {
   button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
+    currentFilter = button.dataset.filter;
     document.querySelectorAll(".filter-btn.active").forEach((item) => {
       item.classList.remove("active");
     });
     button.classList.add("active");
-    markers.forEach((marker) => {
-      const shouldShow = filter === "all" || marker.placeCategory === filter;
-      if (shouldShow && !map.hasLayer(marker)) {
-        map.addLayer(marker);
-      }
-      if (!shouldShow && map.hasLayer(marker)) {
-        map.removeLayer(marker);
-      }
+    applyMarkerFilter();
+  });
+});
+
+document.querySelectorAll(".plan-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    activePlanKey = button.dataset.plan;
+    document.querySelectorAll(".plan-btn.active").forEach((item) => {
+      item.classList.remove("active");
     });
+    button.classList.add("active");
+    window.history.replaceState(null, "", `#${activePlanKey}`);
+    renderPlan();
   });
 });
 
@@ -801,10 +1441,12 @@ document.querySelector("#fit-route").addEventListener("click", () => {
   document.querySelectorAll(".day-card.active").forEach((item) => {
     item.classList.remove("active");
   });
-  map.fitBounds(bounds, { padding: [28, 28] });
+  fitActivePlan();
 });
+
+renderPlan();
 
 setTimeout(() => {
   map.invalidateSize();
-  map.fitBounds(bounds, { padding: [36, 36] });
+  fitActivePlan();
 }, 350);

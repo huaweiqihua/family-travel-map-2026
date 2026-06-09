@@ -131,6 +131,41 @@ h2 {
   gap: 12px;
 }
 
+.plan-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.plan-btn {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #d3ded6;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(42, 56, 47, 0.04);
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    background-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.plan-btn:hover {
+  border-color: #9fb5aa;
+  box-shadow: 0 7px 18px rgba(42, 56, 47, 0.08);
+  transform: translateY(-1px);
+}
+
+.plan-btn.active {
+  border-color: rgba(216, 139, 67, 0.7);
+  background: var(--warm);
+  color: #7c542c;
+}
+
 .metric-grid div,
 .cost-card,
 .day-card {
@@ -584,6 +619,10 @@ h2 {
 
   .filter-bar {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plan-switch {
+    grid-template-columns: 1fr;
   }
 
   h1 {
